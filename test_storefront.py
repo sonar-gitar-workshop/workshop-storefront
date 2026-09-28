@@ -4,6 +4,7 @@ import pytest
 
 import shop_client
 from product_page import product_card
+from order_status import order_status
 from receipt import checkout
 
 RECORDED = {
@@ -17,6 +18,7 @@ RECORDED = {
         "items": [{"sku": "WIDGET-A", "quantity": 2, "unit_price_cents": 2500}],
         "total_cents": 5000,
     },
+    ("GET", "/orders/1"): {"id": "1", "total_cents": 5000},
 }
 
 
@@ -52,3 +54,7 @@ def test_checkout_receipt():
     receipt = checkout({"WIDGET-A": 2})
     assert "Order 1" in receipt
     assert "Total charged: $50.00" in receipt
+
+
+def test_order_status():
+    assert order_status("1") == "Order 1 - $50.00 charged"

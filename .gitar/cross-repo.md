@@ -8,6 +8,7 @@ the sonar-gitar-workshop organization, which are forks of it.
 - `shop_client.py` posts `items[].sku` and `items[].quantity` to `POST /orders`
   and reads `id`, `items[].unit_price_cents` and `total_cents` back.
 - `shop_client.py` reads `id` and `total_cents` from `GET /orders/<order_id>`.
+- `order_status.py` prints the charged total from `total_cents`.
 - `receipt.py` prints the charged total from `total_cents`.
 - `product_page.py` prints prices from `price_cents`.
 

@@ -17,7 +17,7 @@ The whole dependency is `shop_client.py`:
 |---|---|---|
 | `GET /products/<sku>` | `sku`, `name`, `price_cents` | `product_page.py` product cards |
 | `POST /orders` | `id`, `items[].sku`, `items[].quantity`, `items[].unit_price_cents`, `total_cents` | `receipt.py` checkout receipt |
-| `GET /orders/<order_id>` | `id`, `total_cents` | order lookup |
+| `GET /orders/<order_id>` | `id`, `total_cents` | `order_status.py` order lookup |
 
 The storefront sends `sku` and `quantity` only, never a price. The contract on
 the shop side is `docs/order-api.md` in the shop repository. Keep the two in
